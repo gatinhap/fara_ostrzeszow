@@ -1,0 +1,39 @@
+@layer theme {
+  :root {
+    /* Typography */
+    font-family: 'Roboto Flex', Arial, sans-serif;
+    font-optical-sizing: auto;
+    line-height: 1.6;
+    font-weight: 400;
+
+    --font-grade-bold: 'GRAD' 150;
+    --font-grade-semi-bold: 'GRAD' 100;
+    --font-grade-thin: 'GRAD' -50;
+
+    /* Colors */
+    --color--lightBlue: #2292f9;
+    --color--navy: #062e53;
+    --color--cream: #ffe9cf;
+    --color--red: #c71e1e;
+    --color--burgundy: #520f1b;
+    --color--black: #000;
+    --color--white: #fff;
+
+    /* Transitions */
+    --transition--duration-default: 250ms;
+  }
+
+  body {
+    box-sizing: border-box;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    a {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
