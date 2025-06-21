@@ -1,0 +1,7 @@
+@import './reset.css';
+
+:root {
+  font-family: 'DM Sans', Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+}
