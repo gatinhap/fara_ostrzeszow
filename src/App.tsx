@@ -1,12 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import Navigation from './components/navigation/Navigation.desktop';
+import Header from './components/header/Header';
 
 const App = () => {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Navigation />
+      <Header />
     </QueryClientProvider>
   );
 };

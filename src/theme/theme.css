@@ -21,6 +21,13 @@
 
     /* Transitions */
     --transition--duration-default: 250ms;
+
+    /* Media queries */
+    --desktop-breakpoint: 1024px;
+  }
+
+  html {
+    interpolate-size: allow-keywords;
   }
 
   body {
