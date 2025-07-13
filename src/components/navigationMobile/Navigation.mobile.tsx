@@ -7,8 +7,17 @@ import {
   StaticText,
 } from '../navigation/Navigation.constants';
 import { HamburgerMenuWrapper } from './NavigationMobileTrigger.styles';
-import { StyledNavigationMobileContent } from './Navigation.mobile.styles';
+import {
+  StyledNavigationMobileCollapsibleContentGroup,
+  StyledNavigationMobileContent,
+  StyledNavigationMobileItemLink,
+  StyledNavigationMobileItemLinkSecondLevel,
+  StyledNavigationMobileSubTrigger,
+} from './Navigation.mobile.styles';
 import { HEADER_PADDING_BLOCK } from '../header/Header.constants';
+import { NavLink } from 'react-router';
+import { AppPaths } from '../../routes/paths';
+import { Collapsible } from 'radix-ui';
 
 const NavigationMobile = () => {
   return (
@@ -26,55 +35,84 @@ const NavigationMobile = () => {
           sideOffset={HEADER_PADDING_BLOCK}
         >
           <DropdownMenu.Sub>
-            <DropdownMenu.SubTrigger asChild>
-              <a>
-                {StaticText.FIRST_LEVEL.ABOUT} <CaretDownIcon aria-hidden />
-              </a>
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              {secondLevelAboutItems.map((item, index) => (
-                <DropdownMenu.Item asChild key={index}>
-                  <a>{item}</a>
-                </DropdownMenu.Item>
-              ))}
-            </DropdownMenu.SubContent>
+            <Collapsible.Root>
+              <Collapsible.Trigger asChild>
+                <StyledNavigationMobileSubTrigger>
+                  {StaticText.FIRST_LEVEL.ABOUT}
+
+                  <CaretDownIcon aria-hidden />
+                </StyledNavigationMobileSubTrigger>
+              </Collapsible.Trigger>
+
+              <Collapsible.Content asChild>
+                <StyledNavigationMobileCollapsibleContentGroup>
+                  {secondLevelAboutItems.map((item, index) => (
+                    <StyledNavigationMobileItemLinkSecondLevel
+                      asChild
+                      key={index}
+                    >
+                      <NavLink to={'/'}>{item}</NavLink>
+                    </StyledNavigationMobileItemLinkSecondLevel>
+                  ))}
+                </StyledNavigationMobileCollapsibleContentGroup>
+              </Collapsible.Content>
+            </Collapsible.Root>
           </DropdownMenu.Sub>
 
           <DropdownMenu.Sub>
-            <DropdownMenu.SubTrigger asChild>
-              <a>
-                {StaticText.FIRST_LEVEL.SACRAMENTS}
-                <CaretDownIcon aria-hidden />
-              </a>
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              {secondLevelSacramentsItems.map((item, index) => (
-                <DropdownMenu.Item asChild key={index}>
-                  <a>{item}</a>
-                </DropdownMenu.Item>
-              ))}
-            </DropdownMenu.SubContent>
+            <Collapsible.Root>
+              <Collapsible.Trigger asChild>
+                <StyledNavigationMobileSubTrigger>
+                  {StaticText.FIRST_LEVEL.SACRAMENTS}
+
+                  <CaretDownIcon aria-hidden />
+                </StyledNavigationMobileSubTrigger>
+              </Collapsible.Trigger>
+
+              <Collapsible.Content asChild>
+                <StyledNavigationMobileCollapsibleContentGroup>
+                  {secondLevelSacramentsItems.map((item, index) => (
+                    <StyledNavigationMobileItemLinkSecondLevel
+                      asChild
+                      key={index}
+                    >
+                      <NavLink to={'/'}>{item}</NavLink>
+                    </StyledNavigationMobileItemLinkSecondLevel>
+                  ))}
+                </StyledNavigationMobileCollapsibleContentGroup>
+              </Collapsible.Content>
+            </Collapsible.Root>
           </DropdownMenu.Sub>
 
-          <DropdownMenu.Item>
-            <a>{StaticText.FIRST_LEVEL.OFFICE}</a>
-          </DropdownMenu.Item>
+          <StyledNavigationMobileItemLink asChild>
+            <NavLink to={AppPaths.Office}>
+              {StaticText.FIRST_LEVEL.OFFICE}
+            </NavLink>
+          </StyledNavigationMobileItemLink>
 
-          <DropdownMenu.Item>
-            <a>{StaticText.FIRST_LEVEL.ANNOUNCEMENTS}</a>
-          </DropdownMenu.Item>
+          <StyledNavigationMobileItemLink asChild>
+            <NavLink to={AppPaths.Announcements}>
+              {StaticText.FIRST_LEVEL.ANNOUNCEMENTS}
+            </NavLink>
+          </StyledNavigationMobileItemLink>
 
-          <DropdownMenu.Item>
-            <a>{StaticText.FIRST_LEVEL.INTENTIONS}</a>
-          </DropdownMenu.Item>
+          <StyledNavigationMobileItemLink asChild>
+            <NavLink to={AppPaths.Intentions}>
+              {StaticText.FIRST_LEVEL.INTENTIONS}
+            </NavLink>
+          </StyledNavigationMobileItemLink>
 
-          <DropdownMenu.Item>
-            <a>{StaticText.FIRST_LEVEL.GALLERY}</a>
-          </DropdownMenu.Item>
+          <StyledNavigationMobileItemLink asChild>
+            <NavLink to={AppPaths.Gallery}>
+              {StaticText.FIRST_LEVEL.GALLERY}
+            </NavLink>
+          </StyledNavigationMobileItemLink>
 
-          <DropdownMenu.Item>
-            <a>{StaticText.FIRST_LEVEL.CONTACT}</a>
-          </DropdownMenu.Item>
+          <StyledNavigationMobileItemLink asChild>
+            <NavLink to={AppPaths.Contact}>
+              {StaticText.FIRST_LEVEL.CONTACT}
+            </NavLink>
+          </StyledNavigationMobileItemLink>
         </StyledNavigationMobileContent>
       </DropdownMenu.Root>
     </nav>
