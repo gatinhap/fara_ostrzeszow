@@ -27,11 +27,13 @@
   }
 
   html {
+    height: 100dvh;
     interpolate-size: allow-keywords;
   }
 
   body {
     box-sizing: border-box;
+    height: 100dvh;
 
     * {
       box-sizing: border-box;

@@ -5,6 +5,7 @@ import {
   DESKTOP_BREAKPOINT,
   MOBILE_BREAKPOINT,
 } from '../../theme/theme.constants';
+import { HEADER_HEIGHT } from '../header/Header.constants';
 
 const navigationLinkCommon = css`
   transition: font-variation-settings var(--transition--duration-default) ease;
@@ -31,32 +32,18 @@ export const StyledNavigationList = styled(NavigationMenu.List)`
   justify-content: end;
   align-items: center;
   column-gap: 34px;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 0px 20px 20px 0px;
-    max-width: 250px;
-    background-color: var(--color--burgundy);
-  }
 `;
 
-export const StyledNavigationItem = styled(NavigationMenu.Item)`
-  @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    padding: 12px 34px;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    }
-  }
-`;
-
-export const StyledNavigationItemExpandable = styled(StyledNavigationItem)`
+export const StyledNavigationItemExpandable = styled(NavigationMenu.Item)`
   position: relative;
 `;
 
 export const StyledNavigationLink = styled(NavigationMenu.Link)`
   ${navigationLinkCommon};
+
+  &.active {
+    color: var(--color--cream);
+  }
 `;
 
 export const StyledNavigationLinkSecondLevel = styled(StyledNavigationLink)`
@@ -130,4 +117,50 @@ export const StyledNavigationContent = styled(NavigationMenu.Content)`
     padding: 34px;
     background-color: var(--color--cream);
   }
+`;
+
+export const StyledNavigationContentMobile = styled(NavigationMenu.Content)`
+  animation-duration: var(--transition--duration-default);
+  animation-timing-function: ease;
+  position: absolute;
+  right: 0;
+
+  &[data-motion='from-start'] {
+    animation-name: enterFromLeft;
+  }
+
+  &[data-motion='to-start'] {
+    animation-name: exitToLeft;
+  }
+
+  @keyframes enterFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes exitToLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+  }
+`;
+
+export const StyledNavigationMenuViewport = styled(NavigationMenu.Viewport)`
+  position: absolute;
+  top: ${HEADER_HEIGHT}px;
+  left: 0;
+  width: var(--radix-navigation-menu-viewport-width);
+  height: var(--radix-navigation-menu-viewport-height);
+  transition: width, height, var(--transition--duration-default) ease;
 `;
