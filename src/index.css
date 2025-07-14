@@ -1,7 +1,4 @@
-@import './reset.css';
+@layer reset, theme, components;
 
-:root {
-  font-family: 'DM Sans', Arial, sans-serif;
-  line-height: 1.6;
-  font-weight: 400;
-}
+@import './reset.css';
+@import './theme/theme.css';

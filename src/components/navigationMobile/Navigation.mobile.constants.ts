@@ -1,0 +1,1 @@
+export const NAVIGATION_MOBILE_WIDTH = 230;
