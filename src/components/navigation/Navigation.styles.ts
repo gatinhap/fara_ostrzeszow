@@ -4,7 +4,7 @@ import { NavigationMenu } from 'radix-ui';
 
 const navigationItemCommon = css`
   transition: font-variation-settings var(--transition--duration-default) ease;
-  font-size: 17px;
+  font-size: clamp(0.875rem, 0.661rem + 0.33vw, 1.063rem);
   line-height: normal;
   letter-spacing: 1.7px;
   text-transform: uppercase;
@@ -21,7 +21,7 @@ export const StyledNavigationList = styled(NavigationMenu.List)`
   display: flex;
   justify-content: end;
   align-items: center;
-  column-gap: 34px;
+  column-gap: 1.77vw;
 `;
 
 export const StyledNavigationItemExpandable = styled(NavigationMenu.Item)`

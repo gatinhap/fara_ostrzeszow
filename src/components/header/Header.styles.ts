@@ -6,10 +6,10 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 46px 80px;
+  padding: ${HEADER_PADDING_BLOCK}px 4vw;
   background-color: var(--color--navy);
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    padding: ${HEADER_PADDING_BLOCK}px 24px;
+    padding-inline: 24px;
   }
 `;
